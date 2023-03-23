@@ -10,7 +10,7 @@ let numberOfCars;
 app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(bd.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("public", "views"));
 
 
 app.get("/", function (req, res) {
