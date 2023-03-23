@@ -1,28 +1,34 @@
 import express from 'express';
 const app = express();
 import bd from "body-parser";
+import path from "path";
+import { fileURLToPath } from 'url';
 import ejs from 'ejs';
 
 const PORT = process.env.PORT || 8080;
 
-let numberOfCars;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(bd.urlencoded({ extended: true }));
-app.use(express.static("public", "views"));
+app.use(express.static(path.join(__dirname, "public")));
+
+
+let numberOfCars;
 
 
 app.get("/", function (req, res) {
     numberOfCars = 100;
-    res.render("index", {
+    res.render(path.join(__dirname, "views", "index"), {
         number: numberOfCars,
         numbertwo: true
     });
 })
 
 app.get("/your_number_of_cars", function (req, res) {
-    res.render("index", {
+    res.render(path.join(__dirname, "views", "index"), {
         number: numberOfCars,
         numbertwo: false
     });
