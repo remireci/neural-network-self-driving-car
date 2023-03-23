@@ -14,14 +14,14 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res) {
     numberOfCars = 100;
-    res.render("index", {
+    res.render("index.ejs", {
         number: numberOfCars,
         numbertwo: true
     });
 })
 
 app.get("/your_number_of_cars", function (req, res) {
-    res.render("index", {
+    res.render("index.ejs", {
         number: numberOfCars,
         numbertwo: false
     });

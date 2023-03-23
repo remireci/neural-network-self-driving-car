@@ -1,10 +1,10 @@
 {
-    "version": 2.0,
-    "name": "self driving car",
-    "builds": [
-      { "src": "index.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/index.js" }
-    ]
-  }
+  "version": 1.1,
+  "name": "self-driving-car",
+  "builds": [
+    { "src": "app.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/app.js" }
+  ]
+}
