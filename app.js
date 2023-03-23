@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 8080;
 
 let numberOfCars;
 
+app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(bd.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -14,14 +15,14 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res) {
     numberOfCars = 100;
-    res.render("index.ejs", {
+    res.render("index", {
         number: numberOfCars,
         numbertwo: true
     });
 })
 
 app.get("/your_number_of_cars", function (req, res) {
-    res.render("index.ejs", {
+    res.render("index", {
         number: numberOfCars,
         numbertwo: false
     });
